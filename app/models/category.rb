@@ -49,6 +49,10 @@ class Category < ActiveRecord::Base
   def self.reorder_alpha
     reorder send(:with_exclusive_scope){find(:all, :order => 'UPPER(name)').collect { |c| c.id }}
   end
+  
+  #def self.attributes
+    
+  #end
 
   def published_articles
     articles.already_published
